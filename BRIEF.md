@@ -66,6 +66,7 @@ Récapitule les réponses en quelques lignes et fais valider avant d'installer.
 
    Supprime ensuite les lignes de marqueurs `[SCORM]`, `[TEXTES]`, `[MOBILE]`, `[MULTI]` dans les titres de `CLAUDE.md` et le commentaire HTML en tête.
 4. **Chapitres** : crée un fichier `src/chapterN.ts` par chapitre à partir de `src/chapter1.ts` (et ses clés `chN.*` si les textes sont séparés), branche-les dans `main.ts` avec un routage minimal par `location.hash` (`#/ch/1`, `#/ch/2`…), et mets `TOTAL_CHAPTERS` à jour.
+   Pour que les vieux téléphones ne chargent pas tout au démarrage, charge chaque chapitre à la demande (`import('./chapterN')` dans le routage).
 5. `npm install`, puis `npm run check` : tout doit passer. Corrige avant de continuer. Ouvre `npm run dev` pour vérifier visuellement la page (utilise le navigateur intégré si tu en as un).
 
 ## Étape 3 : dépôt GitHub privé
@@ -108,6 +109,16 @@ Quand c'est lié, lance `npm run deploy -- "Premier déploiement"`, récupère l
    - Les chapitres commitent leurs fichiers ; le hub pousse et déploie ; ils se parlent via le hub pour ne rien écraser.
 3. Donne le **récapitulatif final** : adresse GitHub, adresse Vercel, commandes utiles (`npm run dev`, `npm run check`, `npm run deploy`, `npm run jalon`, et `npm run scorm` si SCORM), et la phrase « pousse et déploie ».
 4. Sauvegarde dans ta mémoire de projet (si tu en as une) la règle : « pousse » = commit + push ; « pousse et déploie » = `npm run deploy` direct, sans demander, puis donner l'adresse.
+
+## Qualité du livrable : léger, rapide, autonome
+
+Le projet finit dans un LMS, sur des téléphones parfois anciens. Ces règles sont détaillées dans `CLAUDE.md` (section « Poids, vieux téléphones et autonomie du package ») et contrôlées par `npm run check` :
+
+- **Images optimisées** : originaux dans `assets-src/`, `npm run images` produit des WebP légers dans `src/assets/`. Applique-le toi-même à toute image que la personne te donne, sans qu'elle ait à le demander.
+- **Polices intégrées au package** (`.woff2`, 2 graisses max, chemins relatifs), jamais de Google Fonts ni de CDN : les LMS bloquent souvent les appels vers l'extérieur. Si la personne donne un nom de police, cherche son fichier libre de droits (ou demande-le-lui) et intègre-le.
+- **Code sobre pour les vieux téléphones** : pas de bibliothèque lourde, animations en `transform` / `opacity`, médias chargés à l'ouverture du chapitre.
+- **Aucun appel externe** (CDN, analytics, vidéos en ligne).
+- Avant chaque livraison : `npm run scorm`, puis rappelle à la personne de tester le zip sur SCORM Cloud et de regarder le poids annoncé.
 
 ## Règles à respecter pendant tout le projet (elles sont aussi dans `CLAUDE.md`)
 

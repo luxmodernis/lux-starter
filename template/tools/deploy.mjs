@@ -35,6 +35,7 @@ if (dirty && !all) {
 // 1. Garde-fous : textes cohérents, typage + build
 if (existsSync(join(ROOT, 'tools/check-i18n.mjs'))) run('node', ['tools/check-i18n.mjs']);
 run('npm', ['run', 'build']);
+run('node', ['tools/check-assets.mjs']);
 
 // 2. Git : commit (--all) + push
 if (dirty) {

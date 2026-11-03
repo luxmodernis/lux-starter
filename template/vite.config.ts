@@ -9,5 +9,6 @@ const BUILD = `${git('rev-parse --short HEAD') || 'dev'}${git('status --porcelai
 export default defineConfig({
   base: './',
   define: { __BUILD__: JSON.stringify(BUILD) },
-  build: { target: 'es2020', assetsInlineLimit: 0 },
+  // target : navigateurs d'anciens téléphones (iOS 12+, Android 7+ environ) ; assetsInlineLimit 0 : aucun média encodé dans le JS
+  build: { target: ['es2018', 'safari12', 'chrome64'], assetsInlineLimit: 0, cssTarget: ['safari12', 'chrome64'] },
 });

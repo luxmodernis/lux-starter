@@ -24,7 +24,7 @@ Claude vous demandera votre accord avant chaque installation. Si votre ordinateu
 ## Contenu
 
 - `BRIEF.md` : le brief que lit Claude Code (questions, installation, règles).
-- `template/` : les fichiers copiés dans le projet (Vite + TypeScript, scripts Node `deploy`, `jalon`, `check-i18n`, `package-scorm`, `CLAUDE.md`, règles des conversations de chapitre).
+- `template/` : les fichiers copiés dans le projet (Vite + TypeScript, scripts Node `deploy`, `jalon`, `images`, `check-assets`, `check-i18n`, `package-scorm`, `CLAUDE.md`, règles des conversations de chapitre).
 
 ## Maintenir le kit
 

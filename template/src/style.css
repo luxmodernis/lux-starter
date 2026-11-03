@@ -6,6 +6,10 @@
   --font: system-ui, sans-serif;
 }
 
+/* Police du projet : fichier .woff2 INTÉGRÉ au package (jamais Google Fonts ni CDN, les LMS bloquent l'extérieur).
+@font-face { font-family: 'MaPolice'; src: url('./assets/fonts/MaPolice-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+puis --font: 'MaPolice', system-ui, sans-serif; */
+
 * { box-sizing: border-box; margin: 0; }
 
 /* Le document ne défile jamais : c'est #app (conteneur fixe) qui défile. Safari iOS garde ainsi sa barre du bas stable. */
