@@ -2,6 +2,16 @@
 
 Kit de démarrage Lux Modernis pour un projet web ou un module SCORM mené avec Claude Code.
 
+## Avant de commencer
+
+À faire une seule fois, avant de coller la phrase ci-dessous :
+
+- **Node 20 ou plus** et **git** installés ([nodejs.org](https://nodejs.org), [git-scm.com](https://git-scm.com)).
+- **GitHub** : un compte membre de l'organisation `luxmodernis` (demander l'invitation à Bertrand), puis installer la CLI (`brew install gh` sur Mac, `winget install GitHub.cli` sur PC) et lancer `gh auth login`.
+- **Vercel** : être invité dans l'équipe `lux-modernis` (demander l'invitation à Bertrand), puis lancer `npx vercel login`.
+
+Claude Code vérifie la machine au début de l'installation et vous dit ce qui manque, mais l'invitation aux deux organisations ne peut venir que de Bertrand.
+
 ## Pour démarrer (collègues)
 
 1. Dans Claude Code : créer un **nouvel environnement** qui pointe vers un **dossier vide** de votre ordinateur.
