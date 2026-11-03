@@ -87,13 +87,13 @@ gh repo create luxmodernis/<slug> --private --source . --remote origin --push
 Je ne peux pas me connecter à la place de la personne. Guide-la, une commande à la fois, **dans le terminal de l'application** (onglet Terminal) ou le sien :
 
 1. `npx vercel login` (connexion par e-mail ou GitHub dans le navigateur).
-2. Création et liaison du projet, depuis le dossier **frère** du projet (jamais dans le dépôt) :
+2. Création et liaison du projet, depuis le dossier **frère** du projet (jamais dans le dépôt). Une seule commande, sans question, testée :
    ```bash
    mkdir ../deploy-<slug>
    cd ../deploy-<slug>
-   npx vercel --prod
+   npx vercel link --yes --project <slug> --scope lux-modernis
    ```
-   Réponses : portée = équipe **lux-modernis** ; lier à un projet existant = **non** ; nom = `<slug>` ; le reste par défaut. À ce stade le dossier est vide : un déploiement vide suffit, il sert à créer le lien (`.vercel/`).
+   Elle crée le projet Vercel `<slug>` dans l'équipe `lux-modernis` et le lie au dossier (`.vercel/`). Si Vercel répond que l'équipe est introuvable, lance `npx vercel teams ls` et reprends l'identifiant affiché. Le premier `npm run deploy` fera le premier déploiement.
 3. Si la personne n'est pas dans l'équipe Vercel `lux-modernis`, elle doit demander une invitation à Bertrand avant de continuer ; en attendant, saute à l'étape 5 et reviens ici plus tard.
 
 Pourquoi ce détour : Vercel (offre gratuite) bloque les déploiements reliés à un dépôt quand l'e-mail du commit n'est pas celui d'un membre de l'équipe. En déployant un dossier hors git, le dépôt reste privé et rien ne bloque. `npm run deploy` remplit ce dossier avec le build, ajoute `noindex` et lance `vercel --prod`.
