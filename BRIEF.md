@@ -26,8 +26,11 @@ git --version
 gh --version
 ```
 
-- **Node 20 ou plus** et **git** sont obligatoires. S'il en manque un, indique où l'installer (nodejs.org, git-scm.com) et attends.
-- **`gh`** (GitHub CLI) est recommandé. S'il manque : `brew install gh` sur Mac, `winget install GitHub.cli` sur PC. Puis la personne doit lancer `gh auth login` (compte GitHub membre de l'organisation `luxmodernis`). Tu ne saisis jamais de mot de passe ni de jeton à sa place : donne-lui la commande à lancer elle-même.
+- **Node 20 ou plus**, **git** et **`gh`** (GitHub CLI) sont nécessaires. **Installe toi-même ce qui manque**, sans renvoyer la personne vers des sites : annonce en une phrase ce que tu installes, puis lance la commande (la personne l'approuve dans l'application).
+  - **Mac** : si `brew` manque, ne l'installe pas en silence : propose-le et, s'il faut un mot de passe administrateur, la personne le tape elle-même dans le terminal. Puis `brew install node git gh`. Pour git seul, `xcode-select --install` convient aussi.
+  - **PC** : `winget install OpenJS.NodeJS.LTS Git.Git GitHub.cli` (une commande par paquet si besoin). Après l'installation, un terminal neuf est parfois nécessaire pour que les commandes soient trouvées : relance les vérifications, et demande de rouvrir l'application seulement si elles échouent encore.
+  - Si une installation automatique échoue, explique l'erreur simplement et donne le site officiel (nodejs.org, git-scm.com, cli.github.com) en dernier recours.
+- Ensuite la personne doit lancer `gh auth login` (compte GitHub membre de l'organisation `luxmodernis`). Tu ne saisis jamais de mot de passe ni de jeton à sa place : donne-lui la commande à lancer elle-même, dans l'onglet Terminal.
 - Vérifie le dossier courant : s'il contient déjà un projet, arrête-toi et demande. S'il se trouve dans `.claude/worktrees/`, préviens que le hub doit travailler directement dans le dossier du projet (sans worktree) et demande de recréer l'environnement.
 
 ## Étape 1 : poser les questions

@@ -4,13 +4,9 @@ Kit de démarrage Lux Modernis pour un projet web ou un module SCORM mené avec 
 
 ## Avant de commencer
 
-À faire une seule fois, avant de coller la phrase ci-dessous :
+Rien à installer : Claude s'en charge au début de la conversation (Node, git, GitHub CLI). Il vous guidera pour vous connecter à GitHub et Vercel.
 
-- **Node 20 ou plus** et **git** installés ([nodejs.org](https://nodejs.org), [git-scm.com](https://git-scm.com)).
-- **GitHub** : un compte membre de l'organisation `luxmodernis` (demander l'invitation à Bertrand), puis installer la CLI (`brew install gh` sur Mac, `winget install GitHub.cli` sur PC) et lancer `gh auth login`.
-- **Vercel** : être invité dans l'équipe `lux-modernis` (demander l'invitation à Bertrand), puis lancer `npx vercel login`.
-
-Claude Code vérifie la machine au début de l'installation et vous dit ce qui manque, mais l'invitation aux deux organisations ne peut venir que de Bertrand.
+Il faut seulement avoir **un compte GitHub** et **un compte Vercel**, et avoir demandé à Bertrand de vous inviter dans l'organisation GitHub `luxmodernis` et l'équipe Vercel `lux-modernis`.
 
 ## Pour démarrer (collègues)
 
@@ -23,7 +19,7 @@ Lis https://raw.githubusercontent.com/luxmodernis/lux-starter/main/BRIEF.md et s
 
 Claude vous pose quelques questions (SCORM ou site web, mobile ou responsive, textes à traduire), puis installe tout : projet, GitHub privé, Vercel, version en bas à gauche, organisation en conversations parallèles.
 
-Il faudra seulement : être membre de l'organisation GitHub `luxmodernis` (`gh auth login`), être invité dans l'équipe Vercel `lux-modernis` (`npx vercel login`).
+Claude vous demandera votre accord avant chaque installation. Si votre ordinateur demande votre mot de passe, c'est normal : tapez-le vous-même.
 
 ## Contenu
 
