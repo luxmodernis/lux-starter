@@ -66,7 +66,7 @@ Récapitule les réponses en quelques lignes et fais valider avant d'installer.
 
    Supprime ensuite les lignes de marqueurs `[SCORM]`, `[TEXTES]`, `[MOBILE]`, `[MULTI]` dans les titres de `CLAUDE.md` et le commentaire HTML en tête.
 4. **Chapitres** : crée un fichier `src/chapterN.ts` par chapitre à partir de `src/chapter1.ts` (et ses clés `chN.*` si les textes sont séparés), branche-les dans `main.ts` avec un routage minimal par `location.hash` (`#/ch/1`, `#/ch/2`…), et mets `TOTAL_CHAPTERS` à jour.
-   Pour que les vieux téléphones ne chargent pas tout au démarrage, charge chaque chapitre à la demande (`import('./chapterN')` dans le routage).
+   Pour une expérience fluide sur des téléphones peu puissants, affiche le premier chapitre tout de suite et charge les suivants petit à petit en arrière-plan (`import('./chapterN')` dans le routage, préchargé pendant la lecture ; le module étant téléchargé en local par le LMS, le réseau n'est pas en cause).
 5. `npm install`, puis `npm run check` : tout doit passer. Corrige avant de continuer. Ouvre `npm run dev` pour vérifier visuellement la page (utilise le navigateur intégré si tu en as un).
 
 ## Étape 3 : dépôt GitHub privé
@@ -112,11 +112,11 @@ Quand c'est lié, lance `npm run deploy -- "Premier déploiement"`, récupère l
 
 ## Qualité du livrable : léger, rapide, autonome
 
-Le projet finit dans un LMS, sur des téléphones parfois anciens. Ces règles sont détaillées dans `CLAUDE.md` (section « Poids, vieux téléphones et autonomie du package ») et contrôlées par `npm run check` :
+Le projet finit dans un LMS, sur des téléphones parfois anciens. Ces règles sont détaillées dans `CLAUDE.md` (section « Poids, fluidité et autonomie du package ») et contrôlées par `npm run check` :
 
 - **Images optimisées** : originaux dans `assets-src/`, `npm run images` produit des WebP légers dans `src/assets/`. Applique-le toi-même à toute image que la personne te donne, sans qu'elle ait à le demander.
 - **Polices intégrées au package** (`.woff2`, 2 graisses max, chemins relatifs), jamais de Google Fonts ni de CDN : les LMS bloquent souvent les appels vers l'extérieur. Si la personne donne un nom de police, cherche son fichier libre de droits (ou demande-le-lui) et intègre-le.
-- **Code sobre pour les vieux téléphones** : pas de bibliothèque lourde, animations en `transform` / `opacity`, médias chargés à l'ouverture du chapitre.
+- **Code sobre pour les téléphones peu puissants** (cible iOS 15+ / Chrome 96+, réglée dans `vite.config.ts`) : pas de bibliothèque lourde, animations en `transform` / `opacity`, chapitres et médias chargés petit à petit en arrière-plan. Ces réglages sont des points de départ, à affiner projet par projet.
 - **Aucun appel externe** (CDN, analytics, vidéos en ligne).
 - Avant chaque livraison : `npm run scorm`, puis rappelle à la personne de tester le zip sur SCORM Cloud et de regarder le poids annoncé.
 
