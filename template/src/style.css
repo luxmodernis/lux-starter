@@ -1,0 +1,20 @@
+:root {
+  /* largeur de la colonne de contenu. Mobile seul : 430px max, centrée sur desktop. Responsive : voir CLAUDE.md (section Responsive). */
+  --col: min(100vw, 430px);
+  /* hauteur réelle de la zone visible (mesurée sur #app par main.ts) : 100dvh peut dépasser de quelques px sur iOS et faire scroller */
+  --vh: 100dvh;
+  --font: system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+/* Le document ne défile jamais : c'est #app (conteneur fixe) qui défile. Safari iOS garde ainsi sa barre du bas stable. */
+html, body { height: 100%; overflow: hidden; background: #000; color: #fff; font-family: var(--font); }
+#app { position: fixed; inset: 0; overflow-y: auto; overscroll-behavior: none; -webkit-overflow-scrolling: touch; }
+
+/* Ne pas utiliser position: sticky dans #app (repositionné avec retard sur iOS) : préférer position: fixed. */
+
+/* version du build (site de test uniquement) */
+.build-tag { position: fixed; left: 0; bottom: calc(0px + env(safe-area-inset-bottom)); z-index: 200; padding: 8px; pointer-events: none; font: 500 9px/1 var(--font); color: rgba(255, 255, 255, 0.55); text-shadow: 0 0 3px rgba(0, 0, 0, 0.8); }
+
+.c1-section { width: var(--col); min-height: var(--vh); margin: 0 auto; padding: 24px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }

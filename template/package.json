@@ -1,0 +1,21 @@
+{
+  "name": "{{SLUG}}",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "check": "node tools/check-i18n.mjs && npm run build",
+    "deploy": "node tools/deploy.mjs",
+    "jalon": "node tools/jalon.mjs",
+    "scorm": "npm run build && node tools/package-scorm.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "adm-zip": "^0.5.16",
+    "typescript": "^5.6.0",
+    "vite": "^6.0.0"
+  }
+}
