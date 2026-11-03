@@ -1,7 +1,7 @@
 // Contrôle du build (dist/) : poids et autonomie. Usage : node tools/check-assets.mjs (après npm run build)
 // - ERREUR : une adresse externe (http…) dans le code, le CSS ou le HTML : les LMS bloquent souvent les appels vers l'extérieur
 //   (polices Google, CDN, vidéos en ligne…). Tout doit être dans le package.
-// - ERREUR : image trop lourde (> 400 Ko) ou police au format lourd (.ttf, .otf) ; ATTENTION : image > 200 Ko, package > 30 Mo.
+// - ERREUR : image trop lourde (> 400 Ko) ou police au format lourd (.ttf, .otf) ; ATTENTION : image > 200 Ko, package > 50 Mo (indication, jamais bloquant).
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,7 +11,7 @@ const DIST = join(ROOT, 'dist');
 const KO = 1024;
 const IMG_WARN = 200 * KO;
 const IMG_MAX = 400 * KO;
-const TOTAL_WARN = 30 * KO * KO;
+const TOTAL_WARN = 50 * KO * KO; // indication seulement : dépasser ne fait jamais échouer le contrôle
 
 const errors = [];
 const warnings = [];
@@ -44,7 +44,7 @@ for (const p of files) {
 }
 
 console.log(`Package : ${files.length} fichiers, ${ko(total)}`);
-if (total > TOTAL_WARN) warnings.push(`package lourd (${Math.round(total / KO / KO)} Mo) : vérifier images, vidéos et sons`);
+if (total > TOTAL_WARN) warnings.push(`package au-dessus de 50 Mo (${Math.round(total / KO / KO)} Mo) : à titre indicatif, vérifier images, vidéos et sons`);
 for (const w of warnings) console.log(`⚠ ${w}`);
 for (const e of errors) console.error(`✗ ${e}`);
 process.exit(errors.length ? 1 : 0);

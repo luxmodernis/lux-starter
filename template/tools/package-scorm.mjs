@@ -38,4 +38,6 @@ zip.addFile('imsmanifest.xml', Buffer.from(manifest, 'utf8'));
 mkdirSync(join(ROOT, 'scorm'), { recursive: true });
 const out = join(ROOT, 'scorm', `${pkg.name}-scorm12.zip`);
 zip.writeZip(out);
-console.log(`Paquet SCORM : ${relative(ROOT, out)} (${files.length} fichiers)`);
+const mo = statSync(out).size / 1024 / 1024;
+console.log(`Paquet SCORM : ${relative(ROOT, out)} (${files.length} fichiers, ${mo.toFixed(1)} Mo)`);
+if (mo > 50) console.log('⚠ Au-dessus de 50 Mo : simple indication (pas bloquant), à vérifier selon le LMS visé.');
