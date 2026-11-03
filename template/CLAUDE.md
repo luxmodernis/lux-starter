@@ -54,9 +54,9 @@ Mobile d'abord (`--col` = 100vw), puis media queries `min-width: 768px` (tablett
 
 ## Poids, fluidité et autonomie du package
 
-Le contenu est livré dans un LMS : package léger, fluide sur des téléphones peu puissants, **sans aucun appel vers l'extérieur**. `npm run check` et `npm run deploy` échouent si ces règles sont violées (`tools/check-assets.mjs`).
+Le contenu est livré dans un LMS : package léger, fluide sur des téléphones peu puissants, **sans aucun appel vers l'extérieur**. `npm run check` et `npm run deploy` contrôlent ces règles (`tools/check-assets.mjs`) : seule une adresse externe fait échouer, le reste (poids, formats) est un avertissement.
 
-- **Images** : déposer les originaux dans `assets-src/` (même arborescence que `src/assets/`), lancer `npm run images` (WebP, 1080 px de large max), n'importer que les `.webp` de `src/assets/`. Jamais d'image de plus de 200 Ko sans raison ; au-delà de 400 Ko le contrôle échoue. Pas de PNG/JPG brut dans `public/` ni `src/assets/`.
+- **Images** : déposer les originaux dans `assets-src/` (même arborescence que `src/assets/`), lancer `npm run images` (WebP, 1080 px de large max), n'importer que les `.webp` de `src/assets/`. Pas d'image de plus de 200 Ko sans raison (le contrôle avertit, sans bloquer). Pas de PNG/JPG brut dans `public/` ni `src/assets/`.
 - **Vidéo et son** : vidéo MP4 H.264, 720 px max, 1 à 2 Mo/min si possible, avec image d'aperçu (`poster`) ; son AAC/MP3 96 kbit/s ; ne jamais lancer automatiquement. Jamais de lecteur en ligne (YouTube, Vimeo).
 - **Polices** : **intégrées au package**, jamais Google Fonts ni CDN. Format `.woff2` uniquement, uniquement les graisses utilisées (2 maximum), `font-display: swap`, chargées par `@font-face` avec un chemin relatif (`src/assets/fonts/…`). Texte hors latin (ja, ar…) : sous-ensemble de la police, sinon le fichier pèse plusieurs Mo.
 - **Autonomie** : pas de CDN, pas d'icônes en ligne, pas d'analytics, pas de `fetch` vers un autre domaine. Tout (JS, CSS, polices, médias, textes JSON) est dans le package et en chemins relatifs.

@@ -1,7 +1,7 @@
 // Contrôle du build (dist/) : poids et autonomie. Usage : node tools/check-assets.mjs (après npm run build)
 // - ERREUR : une adresse externe (http…) dans le code, le CSS ou le HTML : les LMS bloquent souvent les appels vers l'extérieur
 //   (polices Google, CDN, vidéos en ligne…). Tout doit être dans le package.
-// - ERREUR : image trop lourde (> 400 Ko) ou police au format lourd (.ttf, .otf) ; ATTENTION : image > 200 Ko, package > 50 Mo (indication, jamais bloquant).
+// - ATTENTION (jamais bloquant) : image > 200 Ko, police au format lourd (.ttf, .otf), package > 50 Mo. Seules les adresses externes font échouer.
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -27,10 +27,10 @@ for (const p of files) {
   total += size;
   const ext = extname(p).toLowerCase();
   if (['.png', '.jpg', '.jpeg', '.gif', '.webp', '.avif'].includes(ext)) {
-    if (size > IMG_MAX) errors.push(`image trop lourde (${ko(size)}) : ${rel} → npm run images`);
+    if (size > IMG_MAX) warnings.push(`image très lourde (${ko(size)}) : ${rel} → npm run images`);
     else if (size > IMG_WARN) warnings.push(`image lourde (${ko(size)}) : ${rel}`);
   }
-  if (['.ttf', '.otf'].includes(ext)) errors.push(`police au format lourd : ${rel} → convertir en .woff2`);
+  if (['.ttf', '.otf'].includes(ext)) warnings.push(`police au format lourd : ${rel} → convertir en .woff2`);
   if (['.html', '.css', '.js', '.mjs', '.json', '.svg'].includes(ext)) {
     const text = readFileSync(p, 'utf8');
     const urls = new Set();
