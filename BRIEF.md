@@ -43,7 +43,7 @@ Utilise l'outil de questions (`AskUserQuestion`) pour poser **toutes** ces quest
 4. **Textes dans un fichier à part pour traduction** : *Oui* (un `texts/en.json`, anglais de référence, aucune phrase en dur dans le code) ou *Non* (textes écrits directement dans le code). Si oui, demande aussi les **langues cibles** (codes : fr, de, ja…) en texte libre.
 5. **Découpage** : combien de chapitres / parties, et leurs noms (peut être « on verra plus tard » : tu crées alors un seul chapitre modèle).
 
-Récapitule les réponses en quelques lignes et fais valider avant d'installer.
+Récapitule les réponses en quelques lignes et fais valider avant d'installer. Dans ce récapitulatif, indique le **nom du dépôt GitHub** proposé (`luxmodernis/<slug>`) et le **nom du projet Vercel** (`<slug>`), et laisse la personne les changer : ce sont eux qui forment l'adresse du site de test. Utilise le nom validé partout ensuite.
 
 ## Étape 2 : installer le socle
 
