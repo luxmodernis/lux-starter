@@ -11,13 +11,15 @@ Il faut seulement avoir **un compte GitHub** et **un compte Vercel**, et avoir d
 ## Pour démarrer (collègues)
 
 1. Dans Claude Code : créer un **nouvel environnement** qui pointe vers un **dossier vide** de votre ordinateur.
-2. Ouvrir une session dans ce dossier et coller cette phrase :
+2. Ouvrir une session dans ce dossier, choisir le modèle **Sonnet 5.5** avec un effort **moyen** (sélecteur de modèle de l'application), et coller cette phrase :
 
 ```
 Lis https://raw.githubusercontent.com/luxmodernis/lux-starter/main/BRIEF.md et suis-le à la lettre pour installer mon projet.
 ```
 
 Claude vous pose quelques questions (SCORM ou site web, mobile ou responsive, textes à traduire), puis installe tout : projet, GitHub privé, Vercel, version en bas à gauche, organisation en conversations parallèles.
+
+Le projet installé règle ensuite Sonnet avec un effort moyen pour toutes les conversations de ce dossier (`.claude/settings.json`) ; le sélecteur de l'application peut toujours passer outre.
 
 Claude vous demandera votre accord avant chaque installation. Si votre ordinateur demande votre mot de passe, c'est normal : tapez-le vous-même.
 
