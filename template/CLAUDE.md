@@ -42,7 +42,7 @@ Le travail est découpé en **une conversation par chapitre / partie**, plus **u
 
 - `src/scorm.ts` (SCORM 1.2 et 2004) n'est appelé que par `src/state.ts` : les chapitres utilisent `markSeen()` / `setBest()`, jamais SCORM directement.
 - `base: './'` dans `vite.config.ts` (chemins relatifs) est indispensable.
-- `npm run scorm` produit `scorm/<projet>-scorm12.zip`. À tester sur SCORM Cloud puis sur le LMS réel (l'état est limité à 4096 caractères en SCORM 1.2).
+- `npm run scorm` produit `scorm/<Client>-<Projet>-SCORM-<LANGUE>-<AAAAMMJJ>-<HHhMM>.zip` ; `npm run html` produit le même nom en `HTML` (sans manifeste). Client = champ `client` de `package.json` (omis s'il est absent), langue par défaut `EN` (`-- --lang fr`). Le titre du manifeste (nom Yoobic imposé par le client) est distinct du nom du zip. À tester sur SCORM Cloud puis sur le LMS réel (l'état est limité à 4096 caractères en SCORM 1.2).
 
 ## [MOBILE] Responsive : mobile uniquement
 

@@ -11,7 +11,8 @@
     "deploy": "node tools/deploy.mjs",
     "images": "node tools/optimize-images.mjs",
     "jalon": "node tools/jalon.mjs",
-    "scorm": "npm run build && node tools/package-scorm.mjs"
+    "scorm": "npm run build && node tools/package-scorm.mjs",
+    "html": "npm run build && node tools/package-scorm.mjs --html"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

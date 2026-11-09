@@ -20,4 +20,4 @@ En déployant un dossier **hors git** (`../deploy-{{SLUG}}`, rempli avec `dist/`
 - `npm run deploy -- "message"` s'arrête s'il reste des fichiers non committés (il les liste). `--all` committe tout puis déploie.
 - `npm run check` : contrôle des textes + typage + build, sans déployer.
 - `npm run jalon -- nom "description"` : étiquette git sur un état validé (`git checkout nom` pour y revenir).
-- `npm run scorm` : paquet SCORM dans `scorm/` (si le projet est un module SCORM).
+- `npm run scorm` : paquet SCORM dans `scorm/` (si le projet est un module SCORM) ; `npm run html` : paquet HTML au même format de nom (`<Client>-<Projet>-<SCORM|HTML>-<LANGUE>-<date>-<heure>.zip`).
