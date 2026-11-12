@@ -1,4 +1,4 @@
-# lux-starter
+# unbox
 
 Kit de démarrage Lux Modernis pour un projet web ou un module SCORM mené avec Claude Code.
 
@@ -14,7 +14,7 @@ Il faut seulement avoir **un compte GitHub** et **un compte Vercel**, et avoir d
 2. Ouvrir une session dans ce dossier, choisir le modèle **Sonnet 5.5** avec un effort **moyen** (sélecteur de modèle de l'application), et coller cette phrase :
 
 ```
-Lis https://raw.githubusercontent.com/luxmodernis/lux-starter/main/BRIEF.md et suis-le à la lettre pour installer mon projet.
+Lis https://raw.githubusercontent.com/luxmodernis/unbox/main/BRIEF.md et suis-le à la lettre pour installer mon projet.
 ```
 
 Claude vous pose quelques questions (SCORM ou site web, mobile ou responsive, textes à traduire), puis installe tout : projet, GitHub privé, Vercel, version en bas à gauche, organisation en conversations parallèles.

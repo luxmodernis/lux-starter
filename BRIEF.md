@@ -4,7 +4,7 @@
 >
 > **Cette conversation devient le « hub déploiement »**, la conversation maître du projet. Si tu as un outil pour renommer la session, appelle-la « Hub déploiement ».
 
-Le kit complet (ce brief + le dossier `template/`) est dans le dépôt public `https://github.com/luxmodernis/lux-starter`. Ne recopie jamais un fichier du template de mémoire : clone le dépôt et copie-le.
+Le kit complet (ce brief + le dossier `template/`) est dans le dépôt public `https://github.com/luxmodernis/unbox`. Ne recopie jamais un fichier du template de mémoire : clone le dépôt et copie-le.
 
 ## Ce que le projet aura à la fin
 
@@ -49,7 +49,7 @@ Récapitule les réponses en quelques lignes et fais valider avant d'installer. 
 
 1. Clone le kit dans un dossier **temporaire** (hors du projet), copie le contenu de `template/` à la racine du dossier courant, puis supprime le clone :
    ```bash
-   git clone --depth 1 https://github.com/luxmodernis/lux-starter.git <dossier-temporaire>
+   git clone --depth 1 https://github.com/luxmodernis/unbox.git <dossier-temporaire>
    ```
    Copie avec une commande qui marche sur le système de la personne (`cp -R <tmp>/template/. .` sur Mac, `Copy-Item -Recurse` ou `xcopy` sur PC). Pense aux fichiers cachés (`.gitignore`).
 2. Remplace les marqueurs dans les fichiers copiés : `{{SLUG}}`, `{{TITLE}}`, `{{DESCRIPTION}}`, `{{GITHUB_REPO}}` (`luxmodernis/<slug>`), `{{VERCEL_URL}}` (à compléter à l'étape 4), `{{TYPE}}`, `{{ECRANS}}`, `{{TEXTES}}`. Fichiers concernés : `package.json`, `index.html`, `CLAUDE.md`, `docs/REGLES-CHAPITRES.md`, `tools/README-deploy.md`.
